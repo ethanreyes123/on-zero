@@ -2,7 +2,7 @@
   "lockfileVersion": 1,
   "workspaces": {
     "": {
-      "name": "by-zero",
+      "name": "on-zero",
       "dependencies": {
         "@sinclair/typebox": "^0.34.41",
         "@sinclair/typebox-codegen": "^0.11.1",

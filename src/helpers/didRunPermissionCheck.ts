@@ -3,7 +3,7 @@ import { globalValue } from '@take-out/helpers'
 import type { MutatorContext } from '../types'
 
 const PermissionCheckRan = globalValue(
-  `by-zero:permissions-check`,
+  `on-zero:permissions-check`,
   () => new WeakMap<MutatorContext, boolean>()
 )
 
