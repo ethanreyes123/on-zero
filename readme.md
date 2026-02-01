@@ -6,7 +6,9 @@
   <img src="./on-zero.svg" width="120" alt="on-zero">
 </picture>
 
-makes [zero](https://zero.rocicorp.dev) really simple to use
+makes [zero](https://zero.rocicorp.dev) really simple to use.
+
+it's what we use for our [takeout stack](https://takeout.tamagui.dev).
 
 ## what it does
 
