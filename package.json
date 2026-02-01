@@ -4,15 +4,16 @@
   "description": "A typed layer over @rocicorp/zero with queries, mutations, and permissions",
   "sideEffects": false,
   "source": "src/index.ts",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.mjs",
+  "main": "dist/cjs",
+  "module": "dist/esm",
   "type": "module",
-  "types": "./dist/index.d.ts",
+  "types": "./types/index.d.ts",
   "bin": {
     "over-zero": "./cli.cjs"
   },
   "files": [
     "src",
+    "types",
     "dist"
   ],
   "publishConfig": {
@@ -37,24 +38,27 @@
   "author": "Nate Wienert",
   "license": "MIT",
   "scripts": {
-    "build": "tsup",
-    "dev": "tsup --watch",
+    "build": "tamagui-build",
+    "watch": "tamagui-build --watch",
     "typecheck": "tsc --noEmit",
-    "prepublishOnly": "npm run build"
+    "clean": "tamagui-build clean",
+    "clean:build": "tamagui-build clean:build",
+    "prepublishOnly": "bun run build"
   },
   "exports": {
     "./package.json": "./package.json",
     ".": {
       "react-native": {
-        "import": "./dist/esm/index.native.mjs",
-        "require": "./dist/cjs/index.native.cjs"
+        "import": "./dist/esm/index.native.js",
+        "require": "./dist/cjs/index.native.js"
       },
-      "types": "./dist/index.d.ts",
+      "types": "./types/index.d.ts",
       "import": "./dist/esm/index.mjs",
-      "require": "./dist/cjs/index.cjs"
+      "require": "./dist/cjs/index.cjs",
+      "default": "./dist/esm/index.mjs"
     },
     "./server": {
-      "types": "./dist/server.d.ts",
+      "types": "./types/server.d.ts",
       "import": "./dist/esm/server.mjs",
       "require": "./dist/cjs/server.cjs"
     }
@@ -81,10 +85,11 @@
     }
   },
   "devDependencies": {
+    "@tamagui/build": "^2.0.0-rc.0",
     "@types/node": "^22.10.0",
     "@types/pg": "^8.11.10",
     "@types/react": "^19.0.0",
     "react": "^19.0.0",
-    "tsup": "^8.3.5"
+    "react-native": "*"
   }
 }
