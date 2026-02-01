@@ -1,16 +1,16 @@
-# over-zero
+# by-zero
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="./over-zero-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./over-zero.svg">
-  <img src="./over-zero.svg" width="120" alt="over-zero">
+  <source media="(prefers-color-scheme: dark)" srcset="./by-zero-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="./by-zero.svg">
+  <img src="./by-zero.svg" width="120" alt="by-zero">
 </picture>
 
 makes [zero](https://zero.rocicorp.dev) really simple to use
 
 ## what it does
 
-over-zero tries to bring Rails-like structure and DRY code to Zero + React.
+by-zero tries to bring Rails-like structure and DRY code to Zero + React.
 
 it provides a few things:
 
@@ -31,7 +31,7 @@ write plain functions. they become synced queries automatically.
 
 ```ts
 // src/data/queries/notification.ts
-import { zql, serverWhere } from 'over-zero'
+import { zql, serverWhere } from 'by-zero'
 
 const permission = serverWhere('notification', (q, auth) => {
   return q.cmp('userId', auth?.id || '')
@@ -100,7 +100,7 @@ models co-locate schema, permissions, and mutations in one file:
 ```ts
 // src/data/models/message.ts
 import { number, string, table } from '@rocicorp/zero'
-import { mutations, serverWhere } from 'over-zero'
+import { mutations, serverWhere } from 'by-zero'
 
 export const schema = table('message')
   .columns({
@@ -156,7 +156,7 @@ zero.mutate.message.upsert(message)
 
 ## permissions
 
-over-zero's permissions system is optional - you can implement your own
+by-zero's permissions system is optional - you can implement your own
 permission logic however you like. `serverWhere()` is a light helper for
 RLS-style permissions that automatically integrate with queries and mutations.
 
@@ -220,7 +220,7 @@ multiple tables:
 
 ```ts
 // src/data/where/server.ts
-import { serverWhere } from 'over-zero'
+import { serverWhere } from 'by-zero'
 
 type RelatedToServer = 'role' | 'channel' | 'message'
 
@@ -249,7 +249,7 @@ then compose them in other permissions:
 
 ```ts
 // src/data/where/channel.ts
-import { serverWhere } from 'over-zero'
+import { serverWhere } from 'by-zero'
 import { hasServerAdminPermission, hasServerReadPermission } from './server'
 
 type RelatedToChannel = 'message' | 'pin' | 'channelTopic'
@@ -285,12 +285,12 @@ export const channelMessages = (props: { channelId: string }) => {
 
 ## generation
 
-`over-zero` has a CLI that auto-generates glue files that wire up your models,
+`by-zero` has a CLI that auto-generates glue files that wire up your models,
 queries, and types.
 
 ### cli commands
 
-**`over-zero generate [dir]`**
+**`by-zero generate [dir]`**
 
 generates all files needed to connect your models and queries:
 
@@ -311,19 +311,19 @@ generates all files needed to connect your models and queries:
 
 ```bash
 # generate once
-bun over-zero generate
+bun by-zero generate
 
 # generate and watch
-bun over-zero generate --watch
+bun by-zero generate --watch
 
 # custom directory
-bun over-zero generate ./app/data
+bun by-zero generate ./app/data
 
 # run linter after generation
-bun over-zero generate --after "bun lint:fix"
+bun by-zero generate --after "bun lint:fix"
 ```
 
-**`over-zero generate-queries <dir>`**
+**`by-zero generate-queries <dir>`**
 
 generates query validators from TypeScript query functions. this is included in
 `generate` but can be run standalone.
@@ -335,7 +335,7 @@ generates query validators from TypeScript query functions. this is included in
 **example:**
 
 ```bash
-bun over-zero generate-queries src/data/queries
+bun by-zero generate-queries src/data/queries
 ```
 
 ### what gets generated
@@ -355,7 +355,7 @@ export const models = {
 **types.ts:**
 
 ```ts
-import type { TableInsertRow, TableUpdateRow } from 'over-zero'
+import type { TableInsertRow, TableUpdateRow } from 'by-zero'
 import type * as schema from './tables'
 
 export type Channel = TableInsertRow<typeof schema.channel>
@@ -414,7 +414,7 @@ exports named `permission` are automatically skipped during query generation.
 client:
 
 ```tsx
-import { createZeroClient } from 'over-zero'
+import { createZeroClient } from 'by-zero'
 import { schema } from '~/data/schema'
 import { models } from '~/data/generated/models'
 import * as groupedQueries from '~/data/generated/groupedQueries'
@@ -439,7 +439,7 @@ export const { ProvideZero, useQuery, zero, usePermission } = createZeroClient({
 server:
 
 ```ts
-import { createZeroServer } from 'over-zero/server'
+import { createZeroServer } from 'by-zero/server'
 import { syncedQueries } from '~/data/generated/syncedQueries'
 
 export const zeroServer = createZeroServer({
@@ -480,7 +480,7 @@ type augmentation:
 import type { schema } from '~/data/schema'
 import type { AuthData } from './auth'
 
-declare module 'over-zero' {
+declare module 'by-zero' {
   interface Config {
     schema: typeof schema
     authData: AuthData
@@ -535,7 +535,7 @@ await zeroServer.mutate(async (tx, mutators) => {
 run a query once without subscribing. works on both client and server:
 
 ```ts
-import { run } from 'over-zero'
+import { run } from 'by-zero'
 import { userById } from '~/data/queries/user'
 
 // with params
@@ -580,7 +580,7 @@ const user = await zeroServer.query((q) => q.user.where('id', userId).one())
 **batch processing:**
 
 ```ts
-import { batchQuery } from 'over-zero'
+import { batchQuery } from 'by-zero'
 
 await batchQuery(
   zql.message.where('processed', false),

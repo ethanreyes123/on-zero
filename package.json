@@ -1,6 +1,6 @@
 {
-  "name": "over-zero",
-  "version": "0.0.67",
+  "name": "by-zero",
+  "version": "0.0.1",
   "description": "A typed layer over @rocicorp/zero with queries, mutations, and permissions",
   "sideEffects": false,
   "source": "src/index.ts",
@@ -9,7 +9,7 @@
   "type": "module",
   "types": "./types/index.d.ts",
   "bin": {
-    "over-zero": "./cli.cjs"
+    "by-zero": "./cli.cjs"
   },
   "files": [
     "src",
@@ -21,11 +21,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/onejs/over-zero.git"
+    "url": "git+https://github.com/onejs/by-zero.git"
   },
-  "homepage": "https://github.com/onejs/over-zero#readme",
+  "homepage": "https://github.com/onejs/by-zero#readme",
   "bugs": {
-    "url": "https://github.com/onejs/over-zero/issues"
+    "url": "https://github.com/onejs/by-zero/issues"
   },
   "keywords": [
     "zero",

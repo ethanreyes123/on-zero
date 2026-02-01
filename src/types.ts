@@ -16,14 +16,14 @@ import type { NullToOptional, TupleToUnion } from '@take-out/helpers'
  *
  *   export type Schema = typeof schema
  *
- *   declare module 'over-zero' {
+ *   declare module 'by-zero' {
  *     interface Config {
  *       schema: Schema
  *       authData: AuthData
  *     }
  *   }
  *
- * over-zero is overridden by consumers of this library to get types which is
+ * by-zero is overridden by consumers of this library to get types which is
  * needed to allow co-locating certain typed helpers like where() and
  * mutations() alongside table() because table is later used to create the Zero
  * schema, which is then needed for where/mutations
